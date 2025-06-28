@@ -1,0 +1,15 @@
+{
+  "name": "@libgranite/scss-variants",
+  "version": "1.0.0",
+  "description": "SCSS Breakpoint variants",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:libgranite/scss-variants.git"
+  },
+  "keywords": [
+    "SCSS",
+    "breakpoints"
+  ],
+  "author": "Rich Gerdes",
+  "license": "MIT"
+}

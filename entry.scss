@@ -1,0 +1,55 @@
+@use "sass:map";
+
+$variants_list: (
+  (
+    'prefix': 'sm',
+    'media-query': '(0px <= width)'
+  ),
+  (
+    'prefix': 'sm-only',
+    'media-query': '(0px <= width < 480px)'
+  ),
+  (
+    'prefix': 'md',
+    'media-query': '(481px <= width)'
+  ),
+  (
+    'prefix': 'md-only',
+    'media-query': '(481px <= width < 769px)'
+  ),
+  (
+    'prefix': 'lg',
+    'media-query': '(769px < width)'
+  ),
+  (
+    'prefix': 'lg-only',
+    'media-query': '(769px < width < 1279px)'
+  ),
+  (
+    'prefix': 'xl',
+    'media-query': '(1280px < width)'
+  ),
+  (
+    'prefix': 'xl-only',
+    'media-query': '(1280px < width <  480px)'
+  )
+) !default;
+
+@mixin variants($class, $variants: $variants_list) {
+  .#{$class} {
+    @content;
+  }
+
+  @each $variant in $variants {
+    $selector: $class;
+    $prefix: map.get($variant, 'prefix');
+    $selector: #{$prefix + \: + $selector};
+
+    $media-query: map.get($variant, 'media-query');
+    @media #{$media-query} {
+      .#{$selector} {
+        @content;
+      }
+    }
+  }
+}
