@@ -7,7 +7,7 @@ This project provides a scss module to generate breakpoint variants for css rule
 The following can be used to load the module from a scss file.
 
 ```
-@use '@libgrante/variants' as variants with (
+@use 'path/to/@libgranite/variants/entry' as variants with (
   $varients_list: (
     (
       'prefix': 'example',
